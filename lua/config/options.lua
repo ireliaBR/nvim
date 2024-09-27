@@ -9,3 +9,9 @@ opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.autoindent = true
+
+-- 当插入模式结束或者缓冲区的内容变化时自动保存
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+    pattern = "*",
+    command = "silent! write",
+})
